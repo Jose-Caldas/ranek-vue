@@ -83,4 +83,25 @@ img {
 #main {
   flex: 1;
 }
+
+input,
+textarea {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+  transition: all 0.3s;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 15px;
+}
+
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+  outline: none;
+  border-color: #87f;
+  box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+}
 </style>
