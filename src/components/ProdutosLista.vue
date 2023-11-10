@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       produtos: null,
-      produtosPorPagina: 5,
+      produtosPorPagina: 3,
       produtosTotal: 0,
     }
   },
@@ -60,7 +60,6 @@ export default {
         .get(this.url)
         .then((response) => {
           this.produtosTotal = Number(response.headers['x-total-count'])
-          console.log(this.produtosTotal)
           this.produtos = response.data
         })
         .catch((error) => {
