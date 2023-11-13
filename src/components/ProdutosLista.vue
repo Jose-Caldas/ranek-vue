@@ -3,13 +3,13 @@
     <transition mode="out-in">
       <div v-if="produtos && produtos.length" class="produtos" key="produtos">
         <div class="produto" v-for="(produto, index) in produtos" :key="index">
-          <router-link to="/">
+          <router-link :to="{ name: 'produto', params: { id: produto.id } }">
             <img
               v-if="produto.fotos"
               v-bind:src="produto.fotos[0].src"
               :alt="produto.fotos[0].titulo"
             />
-            <p class="preco">{{ produto.preco }}</p>
+            <p class="preco">{{ produto.preco | formatPrice }}</p>
             <h2 class="title">{{ produto.nome }}</h2>
             <p>{{ produto.descricao }}</p>
           </router-link>
@@ -72,7 +72,7 @@ export default {
           .catch((error) => {
             console.log(error)
           })
-      }, 1500)
+      }, 1000)
     },
   },
   created() {
