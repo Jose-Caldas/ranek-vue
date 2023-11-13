@@ -39,7 +39,8 @@ export default {
   },
   methods: {
     logar() {
-      this.$emit('logar', this.login)
+      this.$store.dispatch('getUsuario', this.login.email)
+      this.$router.push({ name: 'usuario' })
     },
   },
 }
