@@ -10,7 +10,7 @@
               :alt="produto.fotos[0].titulo"
             />
             <p class="preco">{{ produto.preco | formatPrice }}</p>
-            <h2 class="title">{{ produto.nome }}</h2>
+            <h2 class="product-title">{{ produto.nome }}</h2>
             <p>{{ produto.descricao }}</p>
           </router-link>
         </div>
@@ -113,7 +113,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.titulo {
+.product-title {
   margin-bottom: 10px;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>👍Compre ou Venda👎</h1>
+    <h1 class="title">👍Compre ou Venda👎</h1>
     <ProdutosBusca />
     <ProdutosLista />
   </section>
@@ -23,6 +23,7 @@ h1 {
   color: #87f;
   font-size: 2rem;
   margin-top: 40px;
+  margin-bottom: 30px;
   text-align: center;
 }
 </style>
