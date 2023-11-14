@@ -1,20 +1,50 @@
 <template>
-  <div>
-    <h1 class="title">
-      Seja bem vindo, <span>{{ $store.state.usuario }}</span
-      >!
-    </h1>
-  </div>
+  <section class="usuario">
+    <nav class="sidenav">
+      <ul class="navigation">
+        <li>
+          <router-link :to="{ name: 'usuario' }"> Produtos </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'compras' }"> Compras </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'vendas' }"> Vendas </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'usuario-editar' }">
+            Editar usuário
+          </router-link>
+        </li>
+        <li>
+          <button @click.prevent="deslogar">Deslogar</button>
+        </li>
+      </ul>
+    </nav>
+    <transition mode="out-in">
+      <router-view to="/"></router-view>
+    </transition>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'UsuarioView',
+  methods: {
+    deslogar() {
+      this.$store.dispatch('deslogarUsuario')
+      this.$router.push('/login')
+    },
+  },
 }
 </script>
 
 <style scoped>
-span {
-  font-weight: 300;
+.navigation {
+  display: flex;
+}
+
+li {
+  padding: 10px;
 }
 </style>
