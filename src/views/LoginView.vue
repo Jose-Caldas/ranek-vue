@@ -16,7 +16,7 @@
     </form>
 
     <p class="perdeu">
-      <a href="/" target="_blank"> Perdeu a senha? Clique aqui. </a>
+      <a href="/" target="_blank"> Perdeu a senha? Clique aqui.</a>
     </p>
 
     <LoginCriar />

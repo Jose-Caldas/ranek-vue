@@ -1,7 +1,6 @@
-import { api } from '@/services'
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import { api } from '@/services.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -13,6 +12,7 @@ export default new Vuex.Store({
       nome: '',
       email: '',
       senha: '',
+      cep: '',
       rua: '',
       numero: '',
       bairro: '',
@@ -20,22 +20,23 @@ export default new Vuex.Store({
       estado: '',
     },
   },
-  getters: {},
   mutations: {
     UPDATE_LOGIN(state, payload) {
       state.login = payload
     },
     UPDATE_USUARIO(state, payload) {
-      state.usuario = Object.assign({}, state.usuario, payload)
+      state.usuario = Object.assign(state.usuario, payload)
     },
   },
   actions: {
-    getUsuario(context, payload) {
-      api.get(`/usuario/${payload}`).then((response) => {
-        context.commit('UPDATE_USUARIO', response.data)
-        context.commit('UPDATE_LOGIN', true)
-      })
+    async getUsuario(context, payload) {
+      const response = await api.get(`/usuario/${payload}`)
+      context.commit('UPDATE_USUARIO', response.data)
+      context.commit('UPDATE_LOGIN', true)
+    },
+    criarUsuario(context, payload) {
+      context.commit('UPDATE_USUARIO', { id: payload.email })
+      return api.post('/usuario', payload)
     },
   },
-  modules: {},
 })
