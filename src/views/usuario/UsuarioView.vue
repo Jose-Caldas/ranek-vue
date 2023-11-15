@@ -1,7 +1,7 @@
 <template>
   <section class="usuario">
     <nav class="sidenav">
-      <ul class="navigation">
+      <ul>
         <li>
           <router-link :to="{ name: 'usuario' }"> Produtos </router-link>
         </li>
@@ -17,7 +17,7 @@
           </router-link>
         </li>
         <li>
-          <button @click.prevent="deslogar">Deslogar</button>
+          <button @click="deslogar">Deslogar</button>
         </li>
       </ul>
     </nav>
@@ -40,11 +40,47 @@ export default {
 </script>
 
 <style scoped>
-.navigation {
-  display: flex;
+.usuario {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  max-width: 900px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 20px;
 }
 
-li {
+@media screen and (max-width: 500px) {
+  .usuario {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+.sidenav a,
+button {
   padding: 10px;
+  background: #f7f4fc;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.sidenav a.router-link-exact-active,
+.sidenav a:hover,
+.sidenav button:hover {
+  background: #87f;
+  color: #fff;
+}
+
+.sidenav button {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  cursor: pointer;
 }
 </style>
