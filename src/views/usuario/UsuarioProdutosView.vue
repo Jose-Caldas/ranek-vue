@@ -53,4 +53,14 @@ ul {
   height: 100vh;
   overflow-y: auto;
 }
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s;
+}
 </style>
