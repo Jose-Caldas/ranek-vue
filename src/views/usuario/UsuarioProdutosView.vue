@@ -56,7 +56,6 @@ export default {
     if (this.login) {
       this.getUsuarioProdutos()
     }
-    console.log(this.usuario_produtos)
   },
 }
 </script>
