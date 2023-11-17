@@ -3,7 +3,11 @@
     <section>
       <div v-if="produto" class="produto">
         <ul v-if="produto.fotos">
-          <li class="fotos" v-for="(foto, index) in produto.fotos" :key="index">
+          <li
+            class="fotos"
+            v-for="(foto, index) in produto.fotos"
+            v-bind:key="`foto-${index}`"
+          >
             <img :src="foto.src" :alt="foto.titulo" />
           </li>
         </ul>
@@ -11,9 +15,12 @@
           <h1>{{ produto.nome }}</h1>
           <p class="preco">{{ produto.preco | formatPrice }}</p>
           <p class="descricao">{{ produto.descricao }}</p>
-          <button class="btn" v-if="produto.vendido === 'false'">
-            Comprar
-          </button>
+          <transition mode="out-in" v-if="produto.vendido === 'false'">
+            <button class="btn" v-if="!finalizar" @click="comprarProduto">
+              Comprar
+            </button>
+            <FinalizarCompra :produto="produto" v-else />
+          </transition>
           <button class="btn" disabled v-else>Produto Vendido</button>
         </div>
       </div>
@@ -24,16 +31,24 @@
 
 <script>
 import { api } from '@/services'
+import FinalizarCompra from '@/components/FinalizarCompra.vue'
 
 export default {
   name: 'ProdutoView',
+  components: {
+    FinalizarCompra,
+  },
   props: ['id'],
   data() {
     return {
       produto: null,
+      finalizar: false,
     }
   },
   methods: {
+    comprarProduto() {
+      this.finalizar = true
+    },
     getProdutos() {
       api
         .get(`/produto/${this.id}`)
