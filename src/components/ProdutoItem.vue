@@ -9,7 +9,7 @@
         :src="produto.fotos[0].src"
         :alt="produto.fotos[0].titulo"
       />
-      <p>Ver Produto</p>
+      <p class="ver-produto">Ver Produto</p>
     </router-link>
     <div class="info">
       <p class="preco">{{ produto.preco | formatPrice }}</p>
@@ -49,5 +49,11 @@ export default {
   border-radius: 4px;
   overflow: hidden;
   height: 100px;
+}
+
+.ver-produto {
+  text-decoration: underline;
+  color: #87f;
+  font-size: 14px;
 }
 </style>
