@@ -26,4 +26,10 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
 }
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}
 </style>

@@ -55,6 +55,19 @@ export default {
   margin-bottom: 60px;
 }
 
+@media screen and (max-width: 768px) {
+  .adicionar-produto {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+  }
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
 .btn {
   grid-column: 2;
 }

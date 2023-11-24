@@ -108,6 +108,7 @@ textarea {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 15px;
+  width: 100;
 }
 
 input:hover,

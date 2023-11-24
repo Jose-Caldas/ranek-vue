@@ -89,6 +89,13 @@ h2 {
   margin-bottom: 60px;
 }
 
+@media screen and (max-width: 768px) {
+  .entrega {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 h3 {
   margin: 0;
   text-transform: capitalize;

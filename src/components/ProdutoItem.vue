@@ -41,6 +41,13 @@ export default {
   padding: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .produto {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 .info {
   align-self: end;
 }

@@ -49,7 +49,7 @@ export default {
   padding: 20px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .usuario {
     grid-template-columns: 1fr;
     margin: 0 auto;
