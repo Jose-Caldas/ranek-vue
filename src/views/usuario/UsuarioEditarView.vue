@@ -33,6 +33,9 @@ export default {
         })
     },
   },
+  created() {
+    document.title = 'Ranek | Usuário-editar'
+  },
 }
 </script>
 

@@ -56,6 +56,7 @@ export default {
     if (this.login) {
       this.getUsuarioProdutos()
     }
+    document.title = 'Ranek | Usuário-produtos'
   },
 }
 </script>

@@ -54,6 +54,7 @@ export default {
         .get(`/produto/${this.id}`)
         .then((response) => {
           this.produto = response.data
+          document.title = `Ranek | Produto - ${this.produto.nome}`
         })
         .catch((error) => {
           console.log(error)

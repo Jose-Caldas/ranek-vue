@@ -51,6 +51,7 @@ export default {
     if (this.login) {
       this.getCompras()
     }
+    document.title = 'Ranek | Usuário-compras'
   },
 }
 </script>
